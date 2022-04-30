@@ -1,4 +1,4 @@
-[中文文档](README_ZN.md)
+[中文文档](https://github.com/OrdinarySK/Ordinary/blob/main/README_ZH.md)
 
 # Ordinary
 

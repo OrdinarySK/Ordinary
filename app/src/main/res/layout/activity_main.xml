@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/grey">
+
+    <RelativeLayout
+        android:id="@+id/main_top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <!--App名字文本-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!--搜索框-->
+        <ImageView
+            android:id="@+id/main_iv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:src="@mipmap/search" />
+    </RelativeLayout>
+
+    <!--菜单记录的List-->
+    <ListView
+        android:id="@+id/main_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/main_top_layout"
+        android:background="@color/grey"
+        android:divider="@null"
+        android:dividerHeight="6dp"
+        android:padding="10dp"
+        android:scrollbars="none" /><!--below头部体的下面  设置  divider设置的是间隔  scrollbars是否可以滚动-->
+
+    <!--右下角更多的菜单栏-->
+    <ImageButton
+        android:id="@+id/main_button_more"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/main_morebtn_bg"
+        android:src="@mipmap/more" />
+
+    <!--右下角的记一笔-->
+    <Button
+        android:id="@+id/main_btn_edit"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@id/main_button_more"
+        android:layout_toLeftOf="@id/main_button_more"
+        android:background="@drawable/main_recordbtn_bg"
+        android:text="@string/edit_one"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:drawableLeft="@mipmap/edit"
+        android:gravity="center_vertical"/>
+
+</RelativeLayout>

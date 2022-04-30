@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Ordinary°</string>
+    <string name="edit_one">记一笔...</string>
+    <string name="month_in">本月收入</string>
+    <string name="month_out">本月支出</string>
+    <string name="budget_low">预算剩余</string>
+    <string name="see_table">查看图表分析</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="descs">点此输入备注...</string>
+    <string name="please_input_time">时间(24小时制)</string>
+    <string name="yes">确定</string>
+    <string name="cancel">取消</string>
+    <string name="time">修改时间</string>
+    <string name="date">日期</string>
+    <string name="back">返回日期</string>
+    <string name="set_budget">设置预算</string>
+    <string name="set_budget_hint">设置金额</string>
+</resources>

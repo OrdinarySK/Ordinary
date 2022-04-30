@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <!--时间控件-->
+    <DatePicker
+        android:id="@+id/dialog_time_dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/please_input_time"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/dialog_time_et_hour"
+            android:layout_width="50dp"
+            android:gravity="center"
+            android:maxLength="2"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=":"/>
+
+        <TextView
+            android:id="@+id/dialog_time_et_minute"
+            android:layout_width="50dp"
+            android:maxLength="2"
+            android:gravity="center"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/dialog_time_se_button"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/time"
+            android:layout_marginLeft="50dp"
+            android:background="@drawable/time_button_bg"/>
+
+
+    </LinearLayout>
+
+    <!--取消  确定-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right">
+        <Button
+            android:id="@+id/dialog_time_cancel"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:background="@color/white"
+            android:textColor="@color/grey_7D7D7D"/>
+
+        <Button
+            android:id="@+id/dialog_time_yes"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/yes"
+            android:background="@color/white"
+            android:textColor="@color/edit_text"/>
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

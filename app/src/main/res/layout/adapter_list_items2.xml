@@ -13,7 +13,7 @@
     android:paddingRight="20dp"
     android:paddingBottom="5dp">
 
-    <cn.dreamn.qianji_auto.ui.components.IconView
+    <com.sk.ordinary.components.IconView
         android:id="@+id/icon_header"
         android:layout_width="50dp"
         android:layout_height="50dp"

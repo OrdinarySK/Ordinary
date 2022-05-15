@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_bg"
+        android:padding="10dp">
+        <TextView
+            android:id="@+id/month_out_text_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/month_money_out"/>
+        <TextView
+            android:id="@+id/month_out_money_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="￥：0"
+            android:layout_below="@+id/month_out_text_tv"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+        <ImageView
+            android:id="@+id/main_show_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/month_out_money_tv"
+            android:src="@mipmap/ih_show"
+            android:layout_alignParentRight="true"/>
+        <TextView
+            android:id="@+id/month_in_text_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/month_out_money_tv"
+            android:text="@string/month_money_in"
+            android:layout_marginTop="5dp"/>
+        <TextView
+            android:id="@+id/month_in_money_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/month_in_text_tv"
+            android:text="￥：0"
+            android:layout_alignBottom="@id/month_in_text_tv"
+            android:layout_marginLeft="5dp"/>
+
+
+        <TextView
+            android:id="@+id/budget_remain_money_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="￥：0"
+            android:textSize="20sp"
+            android:layout_below="@+id/main_show_iv"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:id="@+id/budget_remain_ext_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/budget_remain"
+            android:textSize="18sp"
+            android:layout_toLeftOf="@id/budget_remain_money_tv"
+            android:layout_alignBottom="@id/budget_remain_money_tv"
+            android:layout_marginRight="10dp"/>
+        <TextView
+            android:id="@+id/month_balance_text_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/balance_month"
+            android:layout_below="@id/month_in_text_tv"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/month_balance_money_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="￥：0"
+            android:layout_alignBottom="@id/month_balance_text_tv"
+            android:layout_toRightOf="@id/month_balance_text_tv"
+            android:layout_marginLeft="5dp"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

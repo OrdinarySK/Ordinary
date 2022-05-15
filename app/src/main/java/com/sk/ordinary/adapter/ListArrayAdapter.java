@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-
 import com.sk.ordinary.R;
 import com.sk.ordinary.components.IconView;
 

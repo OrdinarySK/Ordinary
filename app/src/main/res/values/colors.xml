@@ -7,20 +7,17 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="grey">#F3F3F3</color>
-    <color name="green_006400">#006400</color>
-    <color name="grey_7D7D7D">#7D7D7D</color>
-    <color name="red">#ff0000</color>
-    <color name="edit_text">#00bce4</color>
-    <color name="out">#e04646</color>
-    <color name="in">#00c4cc</color>
-
-    <color name="blue">#3396fb</color>
-    <color name="icon_title">#5baaed</color>
-    <color name="gray">#8a8a8a</color>
-    <color name="divider">#cac2c2</color>
     <color name="background">#f2f2f2</color>
-    <color name="background_deep_gray">#f0f0f0</color>
+    <color name="blue">#3396fb</color>
+    <color name="divider">#cac2c2</color>
+    <color name="icon_title">#5baaed</color>
     <color name="button_go_setting_bg">#3396fb</color>
-    <color name="background_white">#fff</color>
+    <color name="background_deep_gray">#f0f0f0</color>
+    <color name="gray">#8a8a8a</color>
+    <color name="edit_text">#00bce4</color>
+    <color name="red">#ff0000</color>
+    <color name="red_ff4f81">#ff4f81</color>
+    <color name="out">#e04646</color>
+    <color name="in">#58c1a8</color>
+    <color name="times">#5baaed</color>
 </resources>

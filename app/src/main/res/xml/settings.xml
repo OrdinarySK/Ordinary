@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <PreferenceCategory
+        android:key="themeCategory"
+        android:title="@string/settings_category_theme">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:icon="@drawable/ic_outline_palette_24"
+            android:key="follow_system_accent"
+            android:title="@string/theme_color_system"
+            app:isPreferenceVisible="false"/>
+        <rikka.preference.SimpleMenuPreference
+            android:defaultValue="COLOR_BLUE"
+            android:entries="@array/color_texts"
+            android:entryValues="@array/color_values"
+            android:icon="@drawable/ic_outline_palette_24"
+            android:key="theme_color"
+            android:summary="%s"
+            android:title="@string/theme_color"/>
+        <rikka.preference.SimpleMenuPreference
+            android:defaultValue="MODE_NIGHT_FOLLOW_SYSTEM"
+            android:entries="@array/theme_texts"
+            android:entryValues="@array/theme_values"
+            android:icon="@drawable/ic_baseline_bedtime_24"
+            android:key="dark_theme"
+            android:summary="%s"
+            android:title="@string/dark_theme" />
+        <SwitchPreference
+            android:icon="@drawable/ic_baseline_brightness_4_24"
+            android:key="black_dark_theme"
+            android:summary="@string/pure_black_dark_theme_summary"
+            android:title="@string/pure_black_dark_theme" />
+
+    </PreferenceCategory>
+    <!--关于-->
+    <PreferenceCategory
+        android:key="aboutCategory"
+        android:title="@string/settings_category_about">
+        <Preference
+            android:title="@string/settings_about_app"
+            android:key="about_app"
+            android:icon="@drawable/ic_baseline_favorite_24"/>
+        <Preference
+            android:title="@string/settings_about_author"
+            android:key="about_author"
+            android:icon="@drawable/ic_baseline_tag_faces_24"/>
+    </PreferenceCategory>
+
+<!--    <PreferenceCategory-->
+<!--        android:key="about_Category"-->
+<!--        android:title="@string/settings_category_about">-->
+<!--        <Preference-->
+<!--            android:title="@string/settings_about_app"-->
+<!--            android:key="about_apps"-->
+<!--            android:icon="@drawable/ic_baseline_favorite_24"/>-->
+<!--        <Preference-->
+<!--            android:title="@string/settings_about_author"-->
+<!--            android:key="about_authors"-->
+<!--            android:icon="@drawable/ic_baseline_tag_faces_24"/>-->
+<!--    </PreferenceCategory>-->
+
+<!--    <PreferenceCategory-->
+<!--        android:key="aboutCategorys"-->
+<!--        android:title="@string/settings_category_about">-->
+<!--        <Preference-->
+<!--            android:title="@string/settings_about_app"-->
+<!--            android:key="about_appss"-->
+<!--            android:icon="@drawable/ic_baseline_favorite_24"/>-->
+<!--        <Preference-->
+<!--            android:title="@string/settings_about_author"-->
+<!--            android:key="about_authorss"-->
+<!--            android:icon="@drawable/ic_baseline_tag_faces_24"/>-->
+<!--    </PreferenceCategory>-->
+
+</PreferenceScreen>

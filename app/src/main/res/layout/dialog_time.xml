@@ -10,7 +10,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,17 +17,13 @@
         android:background="@color/white">
         <Button
             android:id="@+id/dialog_date_button"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:text="@string/back"
+            android:layout_width="110dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:text="@string/back_date"
             android:background="@drawable/time_button_bg"
-            android:textColor="@color/edit_text"/>
+            android:textColor="@color/white"/>
     </LinearLayout>
-
-
-
-
-
 
     <!--取消  确定-->
 <!--    <LinearLayout-->
@@ -46,6 +41,4 @@
 <!--            android:textColor="@color/edit_text"/>-->
 
 <!--    </LinearLayout>-->
-
-
 </LinearLayout>

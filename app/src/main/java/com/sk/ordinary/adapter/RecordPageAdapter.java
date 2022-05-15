@@ -9,12 +9,11 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import java.util.List;
 
 /**
- * 记账页面的分类的适配器类
+ * 记录页面的tablayout的适配器
  */
 public class RecordPageAdapter extends FragmentPagerAdapter {
     List<Fragment> fragmentList;
     String [] titles = {"支出", "收入"};
-
     //构造器方法
     public RecordPageAdapter(@NonNull FragmentManager fm, List<Fragment> fragmentList) {
         super(fm);
@@ -35,6 +34,6 @@ public class RecordPageAdapter extends FragmentPagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        return titles[position];
+        return this.titles[position];
     }
 }

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@drawable/card_bg">
+
+    <LinearLayout
+        android:id="@+id/item_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/card_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="05-05"
+            android:textStyle="bold"
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/card_week"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="星期五"
+            android:layout_marginLeft="5dp"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:layout_toRightOf="@id/card_date"/>
+
+        <TextView
+            android:id="@+id/day_out_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="支:24"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_alignParentRight="true"/>
+        <TextView
+            android:id="@+id/day_in_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="收:0"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:layout_toLeftOf="@id/day_out_money"
+            android:layout_marginRight="10dp"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/card_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/item_header"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:scrollbars="none"/>
+
+</RelativeLayout>

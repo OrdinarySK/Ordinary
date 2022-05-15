@@ -67,7 +67,7 @@
                     android:stateListAnimator="@null"
                     android:text="更新"
                     android:textAppearance="?android:attr/textAppearanceButton"
-                    android:textColor="@color/background_white"
+                    android:textColor="@color/white"
                     android:textSize="16sp"
                     app:cornerRadius="100dp" />
             </LinearLayout>

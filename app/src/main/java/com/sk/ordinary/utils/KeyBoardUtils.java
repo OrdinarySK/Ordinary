@@ -1,5 +1,6 @@
 package com.sk.ordinary.utils;
 
+import android.graphics.Color;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.text.Editable;

@@ -1,76 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey">
+    android:background="@color/background_deep_gray">
 
-    <!-- TODO: Update blank fragment layout -->
 
     <RelativeLayout
-        android:id="@+id/frag_record_rl_top"
+        android:id="@+id/frag_top_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:padding="10dp">
+
         <!--被选中的图标-->
         <ImageView
-            android:id="@+id/frag_record_iv"
+            android:id="@+id/frag_top_iv"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@mipmap/ic_qita_fs" />
+            android:src="@drawable/ic_qita"/>
         <!--选中的类型描述-->
         <TextView
-            android:id="@+id/frag_record_tv_type"
+            android:id="@+id/frag_top_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/frag_record_iv"
             android:text="其他"
+            android:layout_toRightOf="@+id/frag_top_iv"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"/>
         <!--编辑金额-->
         <EditText
-            android:id="@+id/frag_record_et_money"
+            android:id="@+id/frag_top_et"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:background="@color/white"
             android:text="0.0"
-            android:textColor="@color/red"
-            android:inputType="number" />
-
+            android:background="@color/white"
+            android:inputType="number"
+            android:textColor="@color/red"/>
     </RelativeLayout>
     <!--分割线-->
     <View
-        android:id="@+id/frag_record_line1"
+        android:id="@+id/divide_line"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_below="@id/frag_record_rl_top"
-        android:background="@color/grey"/>
+        android:layout_below="@id/frag_top_header"
+        android:background="@color/background_deep_gray"/>
     <!--类型列表-->
     <GridView
         android:id="@+id/frag_record_gv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/frag_record_line1"
-        android:background="@color/white"
+        android:layout_below="@+id/divide_line"
         android:numColumns="5"
         android:paddingTop="5dp"
-        android:paddingBottom="5dp"/>
+        android:paddingBottom="5dp"
+        android:background="@color/white"/>
 
-    <!--自定义键盘-->
     <android.inputmethodservice.KeyboardView
-        android:id="@+id/frag_record_keyboard"
+        android:id="@+id/frag_keyboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/grey"
-        android:keyTextColor="@color/black"
+        android:background="@color/background_deep_gray"
         android:focusable="true"
         android:focusableInTouchMode="true"
+        android:keyBackground="@drawable/key_bg"
         android:paddingTop="1dp"
+        android:layout_margin="3dp"
+        android:keyTextColor="@color/black"
         android:layout_alignParentBottom="true"
         android:shadowColor="@color/white"
         android:shadowRadius="0.0"/>
@@ -78,32 +76,22 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/frag_record_keyboard"
+        android:layout_above="@+id/frag_keyboard"
         android:background="@color/white">
-        <!--添加时间-->
         <TextView
-            android:id="@+id/frag_record_tv_time"
+            android:id="@+id/frag_record_time_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2022-10-30 10:00:00"
+            android:text="2022-05-30 12:45"
             android:layout_alignParentRight="true"
             android:padding="10dp"/>
-        <!--添加备注-->
-        <TextView
-            android:id="@+id/frag_record_tv_desc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="添加备注"
-            android:layout_toLeftOf="@id/frag_record_tv_time"
-            android:padding="10dp"
-            android:visibility="gone"/>
 
         <EditText
-            android:id="@+id/frag_record_et_desc"
+            android:id="@+id/frag_record_remark_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/descs"
-            android:layout_toLeftOf="@id/frag_record_tv_time"
+            android:hint="@string/add_remark"
+            android:layout_toLeftOf="@id/frag_record_time_tv"
             android:textColor="@color/edit_text"
             android:textSize="14sp"
             android:background="@color/white"

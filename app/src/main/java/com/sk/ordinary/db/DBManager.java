@@ -7,118 +7,128 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-
-import com.sk.ordinary.entity.AccountBean;
-import com.sk.ordinary.entity.TypeBean;
+import com.sk.ordinary.config.ConfigManager;
+import com.sk.ordinary.entity.BillRecord;
+import com.sk.ordinary.entity.Cate;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 数据库管理工具类  主要对表中的内容进行操作
+ * 数据库的操作的管理类  增删改查的操作
  */
 public class DBManager {
 
-    private static SQLiteDatabase db ;
+    private static SQLiteDatabase db;
+
     /**
      * 初始化数据库对象
      */
     public static void initDB(Context context) {
-        DBOpenHelper dboPenHelper = new DBOpenHelper(context);  //得到帮助类对象
-        db = dboPenHelper.getWritableDatabase();  //获取数据库对象
+        DBInitData dbInitData = new DBInitData(context);
+        db = dbInitData.getWritableDatabase();   // 获取对数据库的读写权限
     }
 
     /**
-     * 读取数据库中的数据
+     * 查询分类表的数据
+     * @param
+     * @param
+     * @param
      */
-    public static List<TypeBean> getTypeList(int kind) {
-        List<TypeBean> list = new ArrayList<>();
 
-        //  读取typedb中的数据
-        String sql = "select * from typetb where kind = "+kind;
+    public static List<Cate> getCateList(int kind) {
+        List<Cate> catelist = new ArrayList<>();
+        String sql = "select * from catetb where kind = "+kind;
         Cursor cursor = db.rawQuery(sql, null);
-        //循环读取游标内容，并添加到对象中
         while(cursor.moveToNext()) {
-            @SuppressLint("Range")
-            String typeName = cursor.getString(cursor.getColumnIndex("typeName"));
-            @SuppressLint("Range") int imageId = cursor.getInt(cursor.getColumnIndex("imageId"));
-            @SuppressLint("Range") int sImageId = cursor.getInt(cursor.getColumnIndex("sImageId"));
+            @SuppressLint("Range") String cateName = cursor.getString(cursor.getColumnIndex("cateName"));
+            @SuppressLint("Range") int cateId1 = cursor.getInt(cursor.getColumnIndex("cateId1"));
+            @SuppressLint("Range") int cateId2 = cursor.getInt(cursor.getColumnIndex("cateId2"));
             @SuppressLint("Range") int kind1 = cursor.getInt(cursor.getColumnIndex("kind"));
+            @SuppressLint("Range") int imageId = cursor.getInt(cursor.getColumnIndex("imageId"));
             @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex("id"));
 
-            TypeBean typeBean = new TypeBean(id, typeName, imageId, sImageId, kind);
-            list.add(typeBean);
+            Cate cate = new Cate(id, cateName, cateId1, cateId2, kind, imageId);
+            catelist.add(cate);
         }
         cursor.close();
-        return list;
+        return catelist;
     }
 
     /**
-     * 保存记账的操作
+     * 记账的数据的插入
      */
+    public static void insertBillRecord(BillRecord billRecord){
 
-    public static void insertMoneyRecord(AccountBean accountBean){
-        String sql = "insert into recordtb(typeName, sImageId, descs, money, time, year, month, day, kind) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "insert into billtb(cateName, cateId1, cateId2, kind, time, year, month, day, remark, pay, account, money) values(" +
+                "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+//        System.out.println(billRecord.getCateName());
+//        System.out.println(billRecord.getCateId1());
+//        System.out.println(billRecord.getCateId2());
+//        System.out.println(billRecord.getTime());
+//        System.out.println(billRecord.getYear());
+//        System.out.println(billRecord.getMonth());
+//        System.out.println(billRecord.getDay());
+//        System.out.println(billRecord.getAccount());
+//        System.out.println(billRecord.getKind());
+//        System.out.println(billRecord.getPay());
+//        System.out.println(billRecord.getMoney());
+
+
         ContentValues values = new ContentValues();
-        values.put("typeName", accountBean.getTypeName());
-        values.put("sImageId", accountBean.getsImageId());
-        values.put("descs", accountBean.getDescs());
-        values.put("money", accountBean.getMoney());
-        values.put("time", accountBean.getTime());
-        values.put("year", accountBean.getYear());
-        values.put("month", accountBean.getMonth());
-        values.put("day", accountBean.getDay());
-        values.put("kind", accountBean.getKind());
-        db.insert("recordtb", null, values);
-        Log.i("数据插入", "recordtb 插入一条数据成功");
+        values.put("cateName", billRecord.getCateName());
+        values.put("cateId1", billRecord.getCateId1());
+        values.put("cateId2", billRecord.getCateId2());
+        values.put("kind", billRecord.getKind());
+        values.put("time", billRecord.getTime());
+        values.put("year", billRecord.getYear());
+        values.put("month", billRecord.getMonth());
+        values.put("day", billRecord.getDay());
+        values.put("remark", billRecord.getRemark());
+        values.put("pay", billRecord.getPay());
+        values.put("account", billRecord.getAccount());
+        values.put("money", billRecord.getMoney());
+
+        db.insert("billtb", null, values);
+        Log.i("数据插入", "billtb 插入一条数据成功");
+
     }
 
     /**
-     * 查询记账数据
+     * 记账的数据的查询
      */
-    public static List<AccountBean> getListByDate(int year, int month, int day) {
-        List<AccountBean> mDatas = new ArrayList<>();
-        String sql = "select * from recordtb where year = ? and month = ? and day = ? order by id desc";
-        Cursor cursor = db.rawQuery(sql, new String[]{year +"", month + "", day + ""});
+
+    public static List<BillRecord> getCurrentMonthBill(int year, int month, int day) {
+        List<BillRecord> billRecordlist = new ArrayList<>();
+        String sql = "select * from billtb where year = ? and month = ? and day <= ? ";
+        Cursor cursor = db.rawQuery(sql, new String[]{year + "", month + "", day + ""});
+
 
         while(cursor.moveToNext()) {
             @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex("id"));
-            @SuppressLint("Range") String typeName = cursor.getString(cursor.getColumnIndex("typeName"));
-            @SuppressLint("Range") String descs = cursor.getString(cursor.getColumnIndex("descs"));
-            @SuppressLint("Range") int sImageId = cursor.getInt(cursor.getColumnIndex("sImageId"));
+            @SuppressLint("Range") String cateName = cursor.getString(cursor.getColumnIndex("cateName"));
+            @SuppressLint("Range") int cateId1 = cursor.getInt(cursor.getColumnIndex("cateId1"));
+            @SuppressLint("Range") int cateId2 = cursor.getInt(cursor.getColumnIndex("cateId2"));
+            @SuppressLint("Range") int kind = cursor.getInt(cursor.getColumnIndex("kind"));
             @SuppressLint("Range") String time = cursor.getString(cursor.getColumnIndex("time"));
             @SuppressLint("Range") int years = cursor.getInt(cursor.getColumnIndex("year"));
-            @SuppressLint("Range") int months =  cursor.getInt(cursor.getColumnIndex("month"));
-            @SuppressLint("Range") int days = cursor.getInt(cursor.getColumnIndex("day"));
-            @SuppressLint("Range") int kind = cursor.getInt(cursor.getColumnIndex("kind"));
+            @SuppressLint("Range") int months = cursor.getInt(cursor.getColumnIndex("month"));
+            @SuppressLint("Range") String remark = cursor.getString(cursor.getColumnIndex("remark"));
+            @SuppressLint("Range") String pay = cursor.getString(cursor.getColumnIndex("pay"));
             @SuppressLint("Range") float money = cursor.getFloat(cursor.getColumnIndex("money"));
-            AccountBean accountBean = new AccountBean(id, typeName, sImageId, descs, money,time, years, months, days, kind);
+            @SuppressLint("Range") int days = cursor.getInt(cursor.getColumnIndex("day"));
+            @SuppressLint("Range") String account = cursor.getString(cursor.getColumnIndex("account"));
 
-
-            mDatas.add(accountBean);
+            BillRecord billRecord = new BillRecord(id, cateName, cateId1, cateId2, kind, time, years, months, days, remark, pay, account, money);
+            billRecordlist.add(billRecord);
         }
         cursor.close();
-        Log.i("查询", "返回条数："+ mDatas.size() );
-        return mDatas;
+        Log.i("查询一次", "chaxunyici");
+        return billRecordlist;
+
     }
 
-    /**
-     * 获取某一天得收入或者支出得总金额
-     *
-     */
-    @SuppressLint("Range")
-    public static float getTotalDayMoney(int year, int month, int day, int kind) {
-        float total = 0.0f;
-        String sql = "select sum(money) from recordtb where year=? and month=? and day=? and kind=?";
-        Cursor cursor = db.rawQuery(sql, new String[]{year + "", month + "", day + "", kind + ""});
-
-        while(cursor.moveToNext()) {
-            total = cursor.getFloat(cursor.getColumnIndex("sum(money)"));
-        }
-        cursor.close();
-        Log.i("日总金额:", ""+total);
-        return total;
-    }
 
     /**
      * 按照某一个月进行查询总金额
@@ -126,7 +136,7 @@ public class DBManager {
     @SuppressLint("Range")
     public static float getTotalMonthMoney(int year, int month, int kind) {
         float total = 0.0f;
-        String sql = "select sum(money) from recordtb where year=? and month=? and kind=?";
+        String sql = "select sum(money) from billtb where year=? and month=? and kind=?";
         Cursor cursor = db.rawQuery(sql, new String[]{year + "", month + "", kind + ""});
 
         while(cursor.moveToNext()) {
@@ -136,26 +146,4 @@ public class DBManager {
         Log.i("月总金额:", ""+total);
         return total;
     }
-
-    /**
-     * 计算某一年得总金额
-     * @param year
-     *
-     * @param kind
-     * @return
-     */
-    @SuppressLint("Range")
-    public static float getTotalYearMoney(int year, int kind) {
-        float total = 0.0f;
-        String sql = "select sum(money) from recordtb where year=? and kind=?";
-        Cursor cursor = db.rawQuery(sql, new String[]{year + "", kind + ""});
-
-        while(cursor.moveToNext()) {
-            total = cursor.getFloat(cursor.getColumnIndex("sum(money)"));
-        }
-        cursor.close();
-        return total;
-    }
-
-
 }
